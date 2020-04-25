@@ -1,0 +1,42 @@
+@import "../../../sass/style.scss";
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #dbdbdb;
+    margin: 10px 0;
+    font-weight: norrmal !important;
+}
+
+table {
+    width: 100% !important;
+    box-sizing: border-box;
+}
+
+
+table thead tr th span {
+    display: inline-block;
+}
+
+table thead tr:nth-child(2) th:nth-child(1) span:first-child {
+    width: 50%;
+}
+
+table thead tr:nth-child(2) th:nth-child(1) span:nth-child(2) {
+    width: 20%;
+}
+
+table thead tr:nth-child(2) th:nth-child(1) span:nth-child(3) {
+    width: 20%;
+}
+
+table thead tr:nth-child(2) th:nth-child(1) span:last-child {
+    width: 7%;
+    text-align: left;
+}
+
+@media (max-width: 575px) {
+    table thead tr {
+        display: none;
+    }
+}

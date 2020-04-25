@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-sm-5 text-center text-sm-right">
+    <img [src]="post.image" [alt]="post.title">
+  </div>
+  <div class="col-sm-7">
+    <h1 class="text-center text-sm-right">{{post.title}}</h1>
+    <div class="details text-center text-sm-right d-flex justify-content-center justify-content-sm-start">
+      <div class="writer d-flex">
+        <mat-icon>create</mat-icon>
+        <p>{{post.writer}}</p>
+      </div>
+      <div class="date d-flex">
+        <mat-icon>date_range</mat-icon>
+        <p>{{post.date}}</p>
+      </div>
+    </div>
+    <div class="summary text-justify">
+      <p> {{post.summary}} </p>
+    </div>
+    <div class="row">
+      <div class="col-12 text-left">
+        <a routerLink="/blog/details" [queryParams]="{id:post.id,title:post.title}" mat-raised-button color="accent">
+          بیشتر بخوانید
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

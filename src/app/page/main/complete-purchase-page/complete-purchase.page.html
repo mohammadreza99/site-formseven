@@ -1,0 +1,39 @@
+<page-header [title]="'تکمیل سفارش'"></page-header>
+<div class="row">
+  <div class="container">
+    <div class="row wrapper">
+      <div class="col-12">
+        <h2 class="text-center">لطفا اطلاعات خود را وارد کنید</h2>
+        <form class="example-form row" (ngSubmit)="onSubmit()">
+          <mat-form-field class="example-full-width col-12" color="accent">
+            <input [(ngModel)]="name" required matInput placeholder="نام" [formControl]="nameFormControl">
+            <mat-error *ngIf="nameFormControl.hasError('required')">
+              نام الزامی است
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width col-12" color="accent">
+            <input matInput [(ngModel)]="phone" pattern="[0-9]*" minlength="11" maxlength="11" required placeholder="شماره تماس" [formControl]="phoneFormControl">
+            <mat-error *ngIf="phoneFormControl.hasError('required')">
+              شماره تماس الزامی است
+            </mat-error>
+            <mat-error *ngIf="phoneFormControl.hasError('pattern')">
+              لطفا فقط از اعداد استفاده کنید
+            </mat-error>
+            <mat-error *ngIf="!phoneFormControl.hasError('pattern') && phoneFormControl.hasError('minlength')">
+              شماره تماس باید حداقل 11 کاراکتر باشد
+            </mat-error>
+          </mat-form-field>
+        </form>
+        <div class="buttons">
+          <a type="submit" [disabled]="(name.length == 0 || phone.length == 0)" mat-raised-button
+            color="accent">
+            <mat-icon>check_circle</mat-icon>
+            تکمیل خرید و ثبت نهایی
+          </a>
+          <a routerLink="/shopping-cart" mat-raised-button>بازگشت به سبد خرید</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

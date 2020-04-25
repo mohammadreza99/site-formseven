@@ -1,0 +1,10 @@
+@import "../../../../sass/style.scss";
+
+h2 {
+    @include title;
+}
+
+.col-12 {
+    padding-top: 20px;
+    line-height: 2em;
+}

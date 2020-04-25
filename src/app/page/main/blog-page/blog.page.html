@@ -1,0 +1,14 @@
+<page-header [title]="'وبلاگ فرم سون'"></page-header>
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <post *ngFor="let post of posts" [post]="post"></post>
+      </div>
+      <div class="col-md-3">
+        <h1>آخرین مطالب</h1>
+        <recent-post *ngFor="let post of recentPosts" [recentPost]="post"></recent-post>
+      </div>
+    </div>
+  </div>
+</div>

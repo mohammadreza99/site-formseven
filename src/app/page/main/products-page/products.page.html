@@ -1,0 +1,27 @@
+<page-header [title]="'محصولات'" [subTitle]="selectedGroup"></page-header>
+<div class="row">
+  <div class="col-md-7 col-lg-9 order-md-1">
+    <div *ngIf="filteredProducts()" class="row">
+      <div class="col-sm-6 col-lg-4 " *ngFor="let product of filteredProducts();let i=index">
+        <item-product [product]="product">
+          <button mat-mini-fab (click)="openModal(i)">
+            <mat-icon>zoom_in</mat-icon>
+          </button>
+        </item-product>
+      </div>
+    </div>
+  </div>
+  <empty-list [show]="filteredProducts().length==0"></empty-list>
+  <div class="col-md-5 col-lg-3 order-md-2" *ngIf="filteredProducts().length!=0">
+    <mat-tab-group color="accent">
+      <mat-tab label="فیلتر">
+        <filter [categories]="categories" [selectedGroup]="selectedGroup" (filterCategory)="onFilterCategory($event)" (allCategoriesClicked)="allCategoriesClicked()">
+        </filter>
+      </mat-tab>
+      <mat-tab label="محصولات اخیر">
+        <recent-product *ngFor="let recentProduct of recentProducts" [recentProduct]="recentProduct"></recent-product>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+<light-box [images]="gallery"></light-box>

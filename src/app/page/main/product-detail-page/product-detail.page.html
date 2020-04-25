@@ -1,0 +1,97 @@
+<page-header [title]="'جزئیات محصول'" [subTitle]="product.group"></page-header>
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>{{product.name}}</h1>
+      </div>
+      <div class="col-md-6 gallery">
+        <div class="banner">
+          <!-- <ngx-image-zoom class="d-block w-100" [thumbImage]="bannerImage" [fullImage]="highBannerImage"
+            [magnification]=".8" [zoomMode]="'hover'">
+          </ngx-image-zoom> -->
+          <lib-ngx-image-zoom   [thumbImage]="bannerImage" [fullImage]="highBannerImage"></lib-ngx-image-zoom>
+        </div>
+        <ul class="thumbnails text-left">
+          <li *ngFor="let img of product.images">
+            <img [src]="img.thumbImage" [alt]="' سون فرم ، لباس فرم ، فرم اداری ، لباس اداری ' + product.name + '-' + product.code" (click)="changeImage(img.thumbImage,img.fullImage)">
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-sm-6 text-right">
+            <a routerLink="/contact">
+              <mat-icon class="align-middle">call</mat-icon>
+              تماس بگیرید
+            </a>
+          </div>
+          <div class="col-sm-6 text-left">
+            <a (click)="addToWishlist()">
+              <mat-icon class="align-middle">favorite_border</mat-icon>
+              اضافه کردن به صفحه علاقه مندی ها
+            </a>
+          </div>
+          <div class="col-12">
+            <button mat-raised-button color="accent" (click)="addToCart()">
+              <mat-icon>add_shopping_cart</mat-icon>
+              اضافه به سبد خرید
+              <span #counter>( {{product.count}} )</span>
+            </button>
+          </div>
+          <div class="col-12">
+            <table class="table table-sm table-bordered">
+              <tbody>
+                <tr>
+                  <th class="text-right">کد</th>
+                  <td>{{product.code}}</td>
+                </tr>
+                <tr class="color">
+                  <th class="text-right">رنگ</th>
+                  <td>
+                    <span *ngFor="let color of product.color"> {{color.fa}}
+                      <span class="colon">,</span>
+                    </span>
+                  </td>
+                </tr>
+                <tr class="size">
+                  <th class="text-right">سایز</th>
+                  <td *ngIf="product.size.length != 0;else allSizes">
+                    <span *ngFor="let size of product.size"> {{size}}
+                      <span class="colon">,</span>
+                    </span>
+                  </td>
+                  <ng-template #allSizes>
+                    <td>
+                      <p>در همه سایز ها موجود است</p>
+                    </td>
+                  </ng-template>
+                </tr>
+                <tr>
+                  <th class="text-right">دسته بندی</th>
+                  <td>{{product.category}} </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-12">
+            <h3>توضیحات</h3>
+            <p class="description text-justify">
+              {{product.description}}
+            </p>
+            <p class="description">
+              جهت اطلاعات بیشتر در مورد محصول با ما
+              <a routerLink="/contact">تماس</a> بگیرید
+            </p>
+            <star-rate [rating]="product.rating"></star-rate>
+          </div>
+          <div class="col-12">
+            <mat-chip-list>
+              <mat-chip *ngFor="let tag of product.tags">{{tag}}</mat-chip>
+            </mat-chip-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+@import "../../../../sass/style.scss";
+
+:host {
+    display: block;
+    height: 100vh;
+    background-image: url("../../../../assets/images/other/bgwall.png");
+    background-color: #fff;
+    margin: auto -15px;
+    overflow: hidden;
+    margin-bottom: 60px;
+}
+
+h1 {
+    @include title($fontSize: 102px);
+}
+
+.home a {
+    @include defaultFont($color: #fff);
+}
+
+.shop a {
+    @include defaultFont($color: $titleColor);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+p {
+    @include title($color: $defaultGray);
+}

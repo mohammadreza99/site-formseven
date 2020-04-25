@@ -1,0 +1,19 @@
+@import "../../../sass/style.scss";
+
+div.header {
+    background-image: url("../../../assets/images/other/bgwall.png");
+    background-color: #fff;
+}
+
+.header .col-12 {
+    text-align: center;
+    padding: 55px 0;
+}
+
+.header h1 {
+    @include title;
+}
+
+.header h2 {
+    @include title($color: $defaultGray, $fontWeight: normal);
+}

@@ -1,0 +1,16 @@
+@import "../../../../sass/style.scss";
+
+h1 {
+    @include title;
+
+    text-align: center;
+    margin: 20px auto;
+    color: $pink;
+}
+
+p {
+    @include defaultFont;
+
+    text-align: justify;
+    margin-bottom: 60px;
+}

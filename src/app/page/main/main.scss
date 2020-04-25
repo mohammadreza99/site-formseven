@@ -1,0 +1,398 @@
+@import "../../../sass/style.scss";
+
+mat-sidenav-container ::ng-deep .mat-drawer-inner-container {
+    overflow: hidden!important;
+}
+.container-fluid {
+    height: 100%;
+}
+
+.sidenav {
+    width: 125px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background: $bgDark1;
+    z-index: 2;
+}
+
+.btns-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.btns-wrapper a {
+    color: #fff;
+    padding: 5px 0;
+}
+
+mat-panel-title a {
+    color: #fff;
+    display: block;
+    width: 100%;
+}
+
+.btns-wrapper a:hover, mat-panel-title:hover, .active {
+    color: $pink !important;
+}
+
+.btns-wrapper a ::ng-deep .mat-button-wrapper {
+    position: relative;
+}
+
+.btns-wrapper .badge {
+    display: inline-block;
+    position: absolute;
+    right: 22px;
+    padding: 1px 4px;
+}
+
+.logo-wrapper {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+}
+
+.logo-wrapper img {
+    width: 115px;
+}
+
+.logo-wrapper h1 {
+    @include title($fontWeight: normal, $color: $gold, $fontSize: 19px);
+
+    display: block;
+}
+
+.sidenav button {
+    width: 100%;
+    padding: 15px;
+    font-size: 15px;
+}
+
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 125px;
+}
+
+.footer {
+    height: 110px;
+    background-color: #eaeaea;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 40px 0;
+}
+
+footer div img {
+    width: 40px;
+    margin: 0 5px;
+}
+
+.socialMedia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social a:hover img {
+    opacity: .7;
+}
+
+.socialMedia > div {
+    flex-direction: row;
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+
+.copyright {
+    @include defaultFont($fontWeight: bold, $color: #92999f);
+
+    background-color: #1e2327;
+    padding: 15px;
+}
+
+mat-accordion ::ng-deep .mat-expansion-panel-content {
+    background: $bgDark2;
+}
+
+mat-accordion {
+    width: 100%;
+    padding: 10px;
+    line-height: 1.5em;
+}
+
+mat-accordion ::ng-deep .mat-expansion-panel {
+    background-color: transparent;
+}
+
+mat-accordion ::ng-deep .mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+}
+
+mat-accordion ::ng-deep .mat-expansion-indicator {
+    display: none;
+}
+
+mat-accordion ::ng-deep .mat-expansion-panel-header {
+    height: auto !important;
+    max-height: 30px !important;
+    background-color: transparent !important;
+}
+
+mat-accordion ::ng-deep .mat-expansion-panel-header:hover {
+    background-color: transparent !important;
+}
+
+mat-accordion ::ng-deep .mat-expansion-panel-body {
+    padding: 0 40px 0 0;
+}
+
+mat-accordion ::ng-deep .mat-expansion-panel-body a {
+    @include defaultFont($color: $defaultGray, $fontSize: 1.2em);
+
+    display: block;
+}
+
+mat-panel-title.mat-expansion-panel-header-title {
+    @include defaultFont($color: #fff, $fontSize: 1.2em);
+}
+
+mat-accordion ::ng-deep .mat-expansion-panel-body a:hover, mat-panel-title a:hover {
+    text-decoration: none;
+    color: $pink;
+}
+
+mat-accordion ::ng-deep .mat-expansion-panel-spacing {
+    margin: 0;
+}
+
+mat-accordion .more-horiz ::ng-deep .mat-expansion-panel-body {
+    padding: 0;
+}
+
+mat-accordion .more-horiz ::ng-deep .mat-expansion-panel-content {
+    background-color: transparent;
+}
+
+.more-horiz mat-expansion-panel-header {
+    padding: 0;
+}
+
+.more-horiz mat-panel-title {
+    margin: 0;
+}
+
+mat-sidenav {
+    overflow: hidden;
+}
+
+.badge {
+    background-color: $pink;
+
+    @include defaultFont($color: #fff);
+}
+
+.categories .col:not(:first-child) > a:active,
+.categories .col:not(:first-child) > a:focus {
+    border: 1px solid #efefef !important;
+}
+
+.categories .col:not(:first-child) > a {
+    border-left: none;
+}
+
+.categories .col > a {
+    display: block;
+    width: 100%;
+    padding: 30px;
+    border: 1px solid #efefef;
+
+    @include defaultFont($fontWeight: bold, $color: $defaultGray);
+}
+
+.categories .col > a:hover {
+    color: $titleColor;
+}
+
+.categories .col {
+    padding: 0;
+}
+
+.categories h2 {
+    @include title($color: $defaultGray);
+
+    margin-bottom: 40px;
+    margin-top: 60px;
+}
+
+.categories h3 {
+    @include defaultFont($color: $defaultGray);
+
+    margin-bottom: 15px;
+    line-height: 20px;
+}
+
+ul > li {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 575px) {
+    .sidenav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+    }
+
+    .btns-wrapper {
+        flex-direction: row;
+    }
+
+    .btns-wrapper .mat-button {
+        min-width: 53px !important;
+    }
+
+    .logo-wrapper {
+        position: static;
+        background: #fff;
+        padding: 10px;
+        background-color: #262a2e;
+    }
+
+    .logo-wrapper span {
+        color: $gold;
+        font-weight: bold;
+    }
+
+    .sidenav button {
+        padding: 5px;
+    }
+
+    mat-sidenav {
+        transform: none !important;
+        width: 100% !important;
+        top: 161px;
+        bottom: auto;
+    }
+
+    mat-sidenav-container ::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
+        display: none !important;
+    }
+
+    mat-sidenav-content {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 161px;
+    }
+
+    .example-container {
+        right: 0;
+        padding-bottom: 160px;
+    }
+    .visible{
+        display: block!important;
+        top:161px!important
+    }
+    .hidden{
+        display: none!important;
+        top:0!important
+   
+    }
+}
+
+@media (max-width: 767px) {
+    .footer-contact {
+        margin-top: 25px;
+    }
+}
+
+.footer-contact mat-icon {
+    float: right;
+    color: $pink;
+}
+
+.footer-contact p {
+    @include defaultFont($color: #fff);
+}
+
+.footer-distributed {
+    background-color: #262a2e;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    padding: 45px 15px 45px 15px;
+    font-family: iranSans;
+}
+
+.footer-distributed .col-md-4 {
+    padding: 0 30px;
+}
+
+.logo {
+    display: block;
+    width: 80px;
+}
+
+.footer-distributed h3 {
+    @include defaultFont($color: #fff, $fontWeight: normal, $fontSize: 19px);
+
+    margin-bottom: 15px;
+}
+
+.footer-distributed .footer-links {
+    margin: 16px 0;
+    padding: 0;
+}
+
+.footer-distributed .footer-links a {
+    display: list-item;
+    text-decoration: none;
+
+    @include defaultFont($color: #fff);
+}
+
+.footer-distributed .footer-contact p a {
+    @include defaultFont($color: #fff);
+
+    text-decoration: none;
+}
+
+.footer-distributed .footer-contact p a:hover,
+.footer-distributed .footer-links a:hover {
+    color: $pink;
+}
+
+.footer-distributed .footer-company-about {
+    line-height: 25px;
+
+    @include defaultFont($color: #92999f);
+
+    margin: 0;
+}
+
+.icon {
+    width: 40px;
+    margin-left: 10px;
+}
+
+.categories div:nth-child(2) a .icon, .categories div:nth-child(3) a .icon {
+    height: 40px;
+    width: auto !important;
+}
+
+.categories a {
+    height: 102px;
+}
+.visible{
+    display: block!important;
+
+}
+.hidden{
+    display: none!important;
+
+}

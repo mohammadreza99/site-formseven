@@ -1,0 +1,47 @@
+<page-header [title]="'سبد خرید'"></page-header>
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" *ngIf="products">
+        <cart-products class="col-sm-8 col-md-9">
+          <cart-product *ngFor="let item of products;let i=index" (changeCount)="changeCount($event,i)" (removeProduct)="removeProduct($event,i)"
+            [product]="item"></cart-product>
+        </cart-products>
+        <empty-list [message]="'سبد خرید شما خالی است'" [show]="!products || products.length == 0"></empty-list>
+      </div>
+      <div  class="prices col-md-12">
+        <mat-form-field *ngIf="false" class="promoCode" [floatLabel]="'never'">
+          <input type="text" [(ngModel)]="promoValue" matInput placeholder="کد تخفیف">
+          <a matSuffix (click)="openSnackBar()">
+            <mat-icon>add</mat-icon>
+          </a>
+        </mat-form-field>
+        <div *ngIf="false" class="final-price">
+          <mat-form-field>
+            <input matInput readonly [value]="totalPrice">
+            <span matPrefix>قیمت کل</span>
+            <span matSuffix class="mat-suffix">تومان</span>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput readonly [value]="promo">
+            <span matPrefix>تخفیف</span>
+            <span matSuffix class="mat-suffix">تومان</span>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput readonly [value]="finalPrice">
+            <span matPrefix>قیمت نهایی</span>
+            <span matSuffix class="mat-suffix">تومان</span>
+          </mat-form-field>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+            <a  class="d-block w-100" mat-raised-button [disabled]="products.length==0" color="accent" (click)="onClick()">
+              <mat-icon>done</mat-icon>
+              تکمیل خرید
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

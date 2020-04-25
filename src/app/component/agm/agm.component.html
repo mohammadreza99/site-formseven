@@ -1,0 +1,7 @@
+<agm-map [zoom]="15" [latitude]="directionX" [longitude]="directionY" (mapClick)="placeMarker($event)">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>

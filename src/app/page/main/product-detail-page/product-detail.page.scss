@@ -1,0 +1,120 @@
+@import "../../../../sass/style.scss";
+
+:host ::ng-deep image-zoom-container {
+    right: 100% !important;
+    top: 0 !important;
+}
+
+.banner img {
+    width: 100%;
+    border: solid 1px #efefef;
+    background: #fff;
+    padding: 10px;
+}
+
+.banner {
+    width: 100%;
+    margin-bottom: 15px;
+    max-width: 80%;
+}
+
+.thumbnails li img {
+    width: 100%;
+    border: solid 1px #efefef;
+    background: #fff;
+    padding: 5px;
+}
+
+.thumbnails li img:hover {
+    border-color: #bbb;
+}
+
+.thumbnails li {
+    display: block;
+    width: 85px;
+    overflow: hidden;
+    border: solid 1px #efefef;
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+    float: right;
+    margin-left: 5px;
+}
+
+.price {
+    @include title($fontWeight: bold);
+}
+
+button {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.col-sm-6 a {
+    @include defaultFont($color: $defaultGray);
+
+    padding-top: 5px;
+    display: block;
+}
+
+.col-sm-6 a:hover {
+    text-decoration: none;
+    color: $pink;
+}
+
+h1 {
+    @include title;
+
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    @include title($fontWeight: normal);
+}
+
+.description {
+    @include defaultFont($color: $defaultGray);
+}
+
+mat-chip {
+    @include defaultFont($fontWeight: bold);
+}
+
+.gallery,
+mat-chip-list {
+    display: block;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 767px) {
+    .banner {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: none;
+    }
+
+    h1 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 575px) {
+    .col-sm-6.text-left,
+    .col-sm-6.text-right {
+        text-align: center !important;
+    }
+}
+
+.color > td:last-child > span:last-child > span.colon {
+    display: none;
+}
+
+td p {
+    margin: 0;
+}
+
+ngx-image-zoom ::ng-deep .ngxImageZoomContainer {
+    width: 100% !important;
+    height: 100% !important;
+}

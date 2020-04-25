@@ -1,0 +1,35 @@
+@import "./mixin";
+
+mat-sidenav {
+  width: 270px;
+  background-color: $bgDark2 !important;
+  color: $lightGray2 !important;
+}
+
+a:focus,
+a:active,
+button:focus,
+button:active {
+  outline: none !important;
+  border: none !important;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+button ::ng-deep .mat-button-wrapper {
+  @include defaultFont($color: #fff);
+}
+
+mat-form-field ::ng-deep .mat-form-field-label,
+mat-form-field,
+mat-list-item.mat-list-item,
+mat-checkbox.mat-checkbox,
+mat-tab-group ::ng-deep .mat-tab-label,
+mat-tab-group ::ng-deep .mat-tab-body-wrapper,
+mat-tab-group {
+  @include defaultFont;
+}

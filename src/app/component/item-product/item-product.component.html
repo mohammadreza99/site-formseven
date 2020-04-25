@@ -1,0 +1,22 @@
+<div class="promo" *ngIf="product.promo!=0"><span>%{{product.promo}}</span></div>
+<div class="item-image">
+  <a routerLink="/products/details"
+  [queryParams]="{id:product.id, group:product.group, category:product.category}">
+    <img [src]="product.images[0].thumbImage" [alt]="' سون فرم ، لباس فرم ، فرم اداری ، لباس اداری ' + product.name + '-' + product.code">
+  </a>
+</div>
+<div class="content text-center">
+  <p class="name">{{product.name}}</p>
+  <p class="category">{{product.category}}</p>
+  <star-rate [rating]="product.rating"></star-rate>
+  <p class="group">{{product.group}} </p>
+  <div class="overlay text-center" #overlay>
+    <a 
+    mat-mini-fab 
+    routerLink="/products/details"
+    [queryParams]="{id:product.id, group:product.group, category:product.category}">
+      <mat-icon>link</mat-icon>
+    </a>
+    <ng-content></ng-content>
+  </div>
+</div>

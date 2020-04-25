@@ -1,0 +1,14 @@
+<div class="col-12">
+  <ol class="breadcrumbs">
+    <li class="your-here">شما اینجا هستید : </li>
+    <li class="breadcrumb-items">
+      <a routerLink="/">خانه</a>
+    </li>
+    <li class="breadcrumb-items" *ngFor="let breadcrumb of breadcrumbs">
+      <span [ngClass]=" breadcrumb.label=='' ? 'none' : 'inline'"> / </span>
+      <a [routerLink]="[breadcrumb.url]">
+        {{ breadcrumb.label }}
+      </a>
+    </li>
+  </ol>
+</div>

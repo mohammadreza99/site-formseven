@@ -1,0 +1,38 @@
+.container {
+    margin-bottom: 60px;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+.col-sm-3 {
+    position: relative;
+}
+
+.close-btn button {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    opacity: .8;
+    width: 20px;
+    height: 20px;
+    z-index: 2;
+}
+
+.close-btn button ::ng-deep span {
+    padding: 0;
+    display: block;
+}
+
+.close-btn mat-icon {
+    font-size: 15px;
+    vertical-align: top;
+    padding-top: 3px;
+    padding-left: 3px;
+    font-size: 15px !important;
+}
+
+item-product {
+    margin-top: 0 !important;
+}

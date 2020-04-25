@@ -1,0 +1,323 @@
+@import "../../../../sass/style.scss";
+
+.header-image img {
+    max-height: 550px;
+    max-width: 100%;
+}
+
+:host > .row:nth-child(1) {
+    @include bgBrick;
+
+    background-color: #f5f5f5;
+    position: relative;
+}
+
+:host > .row:nth-child(1):before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    background: linear-gradient(rgba(0, 0, 0, 0.1), #f5f5f5);
+}
+
+:host > .row:nth-child(2) {
+    position: relative;
+}
+
+:host > .row:nth-child(2):before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #f5f5f5;
+    border-bottom: solid 1px #efefef;
+}
+
+.row:nth-child(2) .row .text-center {
+    background: #fff;
+}
+
+:host > .row:nth-child(2) .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+:host > .row:nth-child(2) .col-sm-4:not(:first-child) {
+    border-right: none;
+}
+
+:host > .row:nth-child(2) .col-sm-4 {
+    border: solid 1px #efefef;
+    background: #fff;
+    box-shadow: rgba(147, 147, 147, 0.1) 0 1px 15px 1px;
+    padding: 25px 15px;
+}
+
+:host > .row:nth-child(2) .container {
+    position: relative;
+    z-index: 2;
+}
+
+:host > .row:nth-child(3) .col-12 {
+    padding: 25px 15px;
+}
+
+:host > .row:nth-child(3) button, :host > .row:nth-child(3) button:active, :host > .row:nth-child(3) button:focus {
+    border: solid 1px #efefef;
+}
+
+:host > .row:nth-child(3) button ::ng-deep span {
+    @include defaultFont;
+}
+
+.service-title {
+    @include defaultFont($fontWeight: bold);
+}
+
+.service, .latest-product h3 {
+    @include defaultFont($color: $defaultGray);
+}
+
+.latest-product h2 {
+    @include title;
+}
+
+.latest-product a:hover {
+    text-decoration: none;
+}
+
+.latest-product a {
+    border: 1px solid #efefef;
+}
+
+.latest-product a ::ng-deep span {
+    @include defaultFont($fontWeight: bold);
+}
+
+.products {
+    margin-top: 30px;
+    overflow-x: hidden;
+    padding-bottom: 20px;
+}
+
+.product-cat {
+    position: relative;
+}
+
+.category-caption:before {
+    content: '';
+    width: 0;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .35s;
+}
+
+.category-caption {
+    @include title($color: #fff, $fontWeight: normal);
+
+    text-shadow: 1px 1px 4px grey;
+}
+
+@media (max-width: 992px) {
+    .category-caption {
+        font-size: 1.2em;
+    }
+}
+
+.header h1, .categories h2 {
+    color: $gold;
+    font-weight: bold;
+}
+
+.header h1 + h2, h2 + h5 {
+    color: $defaultGray;
+}
+
+.clients h2 {
+    @include title($color: $defaultGray);
+
+    margin-top: 40px;
+}
+
+.slideshow-wrapper,
+.tech-slideshow {
+    height: 90px;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slideshow-wrapper::after,
+.slideshow-wrapper::before {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width: 300px;
+    background: #777;
+    box-shadow: 0 15px 10px #777;
+    transform: rotate(-3deg);
+}
+
+.slideshow-wrapper:after {
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
+}
+
+.tech-slideshow::after,
+.tech-slideshow::before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    top: 50%;
+    width: 100%;
+}
+
+.tech-slideshow::after {
+    left: 100%;
+}
+
+.tech-slideshow::before {
+    right: 100%;
+}
+
+.slideshow-wrapper > div {
+    height: 90px;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #efefefa8;
+}
+
+.tech-slideshow .mover {
+    height: 200px;
+    width: 2526px;
+    background-image: url("../../../../assets/images/other/slider.png");
+    background-repeat: repeat-x;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translate3d(0, 0, 0);
+    animation: moveSlideshow 60s linear infinite;
+}
+
+@keyframes moveSlideshow {
+    100% {
+        transform: translateX(-1850px);
+    }
+}
+
+.grid figure {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.grid figure img {
+    position: relative;
+    display: block;
+    min-height: 100%;
+    max-width: 100%;
+    opacity: 0.8;
+}
+
+.grid figure figcaption {
+    padding: 2em;
+    color: #fff;
+    backface-visibility: hidden;
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+    pointer-events: none;
+}
+
+.grid figure figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+figure.effect-ming {
+    background: #030c17;
+}
+
+figure.effect-ming img {
+    opacity: 0.9;
+    transition: all .35s;
+    width: 100%;
+}
+
+figure.effect-ming figcaption::before {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    bottom: 30px;
+    left: 30px;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.2);
+    content: '';
+    opacity: 0;
+    transition: opacity 0.35s, transform 0.35s;
+    transform: scale3d(1.4, 1.4, 1);
+}
+
+figure.effect-ming p {
+    opacity: .5;
+    transition: opacity 0.35s, transform 0.35s;
+    transform: scale(1.5);
+}
+
+figure.effect-ming:hover figcaption::before,
+figure.effect-ming:hover p {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+}
+
+figure.effect-ming:hover img {
+    transform: scale(1.1, 1.1);
+}
+
+figure.effect-ming:hover figcaption {
+    background-color: rgba(58, 52, 42, 0);
+}
+
+figure.effect-ming:hover .category-caption {
+    opacity: 1;
+}
+
+figure.effect-ming:hover .category-caption::before {
+    width: 100%;
+}
+
+figure.effect-ming:hover img {
+    opacity: 0.4;
+    filter: blur(3px);
+}

@@ -1,0 +1,104 @@
+@import "../../../sass/style.scss";
+
+input {
+    border: rgb(134, 134, 134);
+    border: 1px solid rgb(216, 216, 216);
+    padding: 3px;
+    width: 70px;
+}
+
+.wrapper div {
+    padding: 10px 15px;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #dbdbdb;
+    margin: 10px 0;
+}
+
+.price {
+    @include defaultFont($color: $defaultGray, $fontWeight: bold);
+}
+
+a {
+    @include defaultFont($color: $pink, $fontWeight: bold);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+table {
+    width: 100% !important;
+}
+
+table tbody tr td img {
+    width: 100px;
+}
+
+table tbody tr td:first-child {
+    width: 50%;
+}
+
+table tbody tr td:nth-child(2) {
+    width: 20%;
+}
+
+table tbody tr td:nth-child(3) {
+    width: 20%;
+}
+
+table tbody tr td:last-child {
+    float: left;
+    padding-left: 5px;
+}
+
+@media (max-width: 575px) {
+    table tbody tr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table tbody tr td {
+        padding: 10px 0;
+    }
+
+    table tbody tr td span {
+        display: block;
+        padding-top: 10px;
+    }
+
+    td button {
+        margin: 0 !important;
+    }
+
+    table tbody tr td:first-child {
+        width: 100% !important;
+    }
+
+    table tbody tr td:last-child {
+        float: none;
+        padding-left: 0 !important;
+    }
+}
+
+td button {
+    width: 20px;
+    height: 20px;
+    margin: 40px 0;
+}
+
+td button ::ng-deep span {
+    padding: 0;
+    display: block;
+}
+
+td mat-icon {
+    font-size: 15px !important;
+    vertical-align: top;
+    padding-top: 3px;
+    padding-left: 3px;
+}

@@ -1,0 +1,47 @@
+@import "../../../sass/style.scss";
+
+:host {
+    display: block;
+    overflow: hidden;
+}
+
+mat-list.mat-list {
+    padding-top: 0 !important;
+}
+
+mat-list-item.mat-list-item {
+    height: 30px;
+}
+
+mat-list-item a {
+    width: 100%;
+    display: block;
+    border-bottom: dashed 1px #efefef;
+
+    @include defaultFont($color: $defaultGray);
+}
+
+mat-list-item a:hover, mat-list-item a:focus {
+    text-decoration: none;
+    color: $pink;
+}
+
+.categories{
+    border-bottom: solid 1px #efefef;
+    padding: 0 15px;
+    padding: 20px 25px;
+}
+
+h3 {
+    @include defaultFont($fontWeight: bold);
+}
+
+.activeCategory {
+    color: $pink !important;
+    font-weight: bold !important;
+}
+
+.notActiveCategory {
+    color: $defaultGray !important;
+    font-weight: normal !important;
+}

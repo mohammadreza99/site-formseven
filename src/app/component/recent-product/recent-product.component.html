@@ -1,0 +1,14 @@
+<figure class="row justify-content-center">
+  <div class="image-wrapper col-6">
+    <a routerLink="/products/details" [queryParams]="{id:recentProduct.id, group:recentProduct.group, category:recentProduct.category}">
+      <img class="w-100" [src]="recentProduct.images[0].thumbImage" [alt]="' سون فرم ، لباس فرم ، فرم اداری ، لباس اداری ' + recentProduct.name + '-' + recentProduct.code">
+    </a>
+  </div>
+  <figcaption class="col-12 text-center">
+    <h6>
+      <a routerLink="/products/details" [queryParams]="{id:recentProduct.id, group:recentProduct.group, category:recentProduct.category}">{{recentProduct.name}}</a>
+    </h6>
+    <p>{{recentProduct.group}}</p>
+    <p>{{recentProduct.category}}</p>
+  </figcaption>
+</figure>

@@ -1,0 +1,34 @@
+@import "../../../sass/style.scss";
+
+:host {
+    display: block;
+    overflow: hidden;
+}
+
+figure {
+    border-bottom: 1px solid #efefef;
+    padding: 20px 15px;
+}
+
+h6 {
+    margin-top: 12px;
+}
+
+p {
+    margin: 0;
+
+    @include defaultFont($color: $defaultGray);
+}
+
+.image-wrapper img {
+    border: solid 1px #efefef;
+}
+
+a:hover {
+    text-decoration: none;
+    color: $pink;
+}
+
+a {
+    @include defaultFont($fontWeight: bold);
+}

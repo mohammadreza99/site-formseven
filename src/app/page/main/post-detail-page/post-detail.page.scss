@@ -1,0 +1,27 @@
+@import "../../../../sass/style.scss";
+
+h1 {
+    @include title;
+
+    border-bottom: 1px solid #efefef;
+    padding-bottom: 15px;
+    margin-top: 12px;
+}
+
+.description {
+    @include defaultFont;
+
+    margin-top: 15px;
+}
+
+img {
+    padding: 15px;
+    border: 1px solid #efefef;
+    margin-top: 15px;
+}
+
+.detail {
+    @include defaultFont($color: $defaultGray);
+
+    border-top: 1px solid #efefef;
+}

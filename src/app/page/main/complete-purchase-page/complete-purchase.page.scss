@@ -1,0 +1,39 @@
+@import "../../../../sass/style.scss";
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+h2 {
+    @include title;
+
+    margin-top: 50px;
+}
+
+a {
+    color: $titleColor;
+}
+
+.wrapper {
+    margin-bottom: 60px;
+}
+
+.buttons a {
+    display: block;
+    margin-top: 20px;
+}
+
+.buttons a:first-child {
+    @include defaultFont($color: #fff);
+}
+
+.buttons a:last-child {
+    @include defaultFont;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}

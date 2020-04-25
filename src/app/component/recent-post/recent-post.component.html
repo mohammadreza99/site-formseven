@@ -1,0 +1,14 @@
+<figure class="row justify-content-center">
+  <div class="image-wrapper col-6" *ngIf="recentPost.image">
+    <a routerLink="/blog/details" [queryParams]="{id:recentPost.id}">
+      <img class="w-100" [src]="recentPost.image" [alt]="recentPost.title">
+    </a>
+  </div>
+  <figcaption class="col-12 text-center">
+    <h6>
+      <a routerLink="/blog/details" [queryParams]="{id:recentPost.id}">{{recentPost.title}}</a>
+    </h6>
+    <p>{{recentPost.writer}}</p>
+    <p>{{recentPost.date}}</p>
+  </figcaption>
+</figure>

@@ -1,0 +1,26 @@
+<div class="wrapper text-center text-md-right">
+  <table class="w-100">
+    <tbody>
+      <tr>
+        <td>
+          <a routerLink="/products/details" [queryParams]="{id:product.id, group:product.group, category:product.category}">
+          <img [src]="product.images[0].thumbImage" [alt]="' سون فرم ، لباس فرم ، فرم اداری ، لباس اداری ' + product.name + '-' + product.code">
+          <span>{{product.name}}</span>
+          </a>
+        </td>
+        <td>
+          <input (click)="onChange()" type="number" min="1" [(ngModel)]="product.count">
+        </td>
+        <!-- <td class="price">{{product.price * product.count}} تومان</td> -->
+        <td class="price"><a  routerLink="/contact">تماس بگیرید</a></td>
+        <td>
+          <button (click)="onClick()" mat-mini-fab>
+            <mat-icon>close</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="line col-xs-12">
+</div>

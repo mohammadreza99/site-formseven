@@ -1,0 +1,26 @@
+<page-header [title]="post.title"></page-header>
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-12" *ngIf="post.image">
+            <img class="w-100" [src]="post.image" [alt]="post.title">
+          </div>
+          <div class="col-12 description">
+            <p class="text-justify">
+              {{post.description}}
+            </p>
+          </div>
+          <div class="col-12 detail d-flex justify-content-between">
+            <p>پست شده در : {{post.date}}</p><p>توسط : {{post.writer}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <h1>آخرین مطالب</h1>
+        <recent-post *ngFor="let post of recentPosts" [recentPost]="post"></recent-post>
+      </div>
+    </div>
+  </div>
+</div>

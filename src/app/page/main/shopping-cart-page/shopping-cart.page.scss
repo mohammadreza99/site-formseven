@@ -1,0 +1,93 @@
+.container {
+    margin-bottom: 60px;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #dbdbdb;
+    margin: 10px 0;
+}
+
+input {
+    text-align: left;
+}
+
+.mat-suffix {
+    margin-right: 5px;
+}
+
+mat-form-field {
+    border: 1px solid rgb(218, 218, 218);
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+
+.final-price mat-form-field:not(:first-child) {
+    border-top-color: transparent;
+}
+
+.final-price mat-form-field:last-child span, .final-price mat-form-field:last-child input {
+    font-weight: bold;
+}
+
+mat-form-field:hover {
+    border-color: #ff4081 !important;
+}
+
+mat-form-field ::ng-deep .mat-input-underline {
+    display: none;
+}
+
+mat-form-field ::ng-deep .mat-input-wrapper {
+    padding: 5px 0;
+}
+
+.promoCode {
+    margin: 10px 0 25px;
+}
+
+mat-form-field.promoCode ::ng-deep .mat-form-field-flex {
+    display: flex;
+    align-items: unset;
+}
+
+mat-form-field.promoCode ::ng-deep input {
+    text-align: right;
+}
+
+mat-form-field.promoCode a, mat-form-field.promoCode mat-icon {
+    display: block;
+}
+
+mat-form-field.promoCode a {
+    padding-top: 3px;
+}
+
+mat-form-field ::ng-deep .mat-form-field-infix {
+    border: none !important;
+}
+
+mat-form-field ::ng-deep .mat-form-field-underline {
+    height: 0px !important;
+}
+
+mat-form-field ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 10px !important;
+    padding-top: 10px;
+}
+
+mat-form-field ::ng-deep .mat-form-field-ripple {
+    display: none !important;
+}
+
+.prices {
+    padding-top: 25px;
+    text-align: center!important;
+
+}
+
+.col-12 > .d-block {
+    margin-top: 20px;
+}

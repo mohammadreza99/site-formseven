@@ -1,0 +1,16 @@
+@import "../../../sass/style.scss";
+
+:host {
+    display: block;
+    width: 100%;
+}
+
+img {
+    max-width: 150px;
+}
+
+p {
+    @include defaultFont($fontWeight: bold, $color: $defaultGray);
+
+    margin-top: 15px;
+}

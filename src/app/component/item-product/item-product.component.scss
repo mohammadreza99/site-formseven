@@ -1,0 +1,75 @@
+@import "../../../sass/style.scss";
+
+:host {
+    display: block;
+    border: 1px solid #efefef;
+    background-color: #fff;
+    margin-bottom: 30px;
+    position: relative;
+    @include defaultFont;
+    overflow: hidden;
+}
+
+img {
+    width: 100%;
+}
+
+.content {
+    position: relative;
+    padding: 10px 0;
+}
+
+p {
+    margin: 0;
+
+    @include defaultFont;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay a {
+    margin-left: 5px;
+    display: block;
+}
+
+.category {
+    @include defaultFont($color: $defaultGray);
+    padding-bottom: 10px ;
+    padding-bottom: 0;
+}
+
+.price {
+    @include defaultFont($fontWeight: bold, $color: $pink);
+}
+.group {
+    @include defaultFont($fontWeight: bold, $color: $pink);
+    padding-bottom: 10px ;
+}
+.promo{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: $pink;
+    transform: rotate(45deg);
+    transform-origin: 50% 50%;
+    top: -50px;
+    left: -50px;
+}
+.promo span{
+    position: absolute;
+    bottom: 50%;
+    right: 0;
+    transform: rotate(-90deg) translateX(-50%);
+    color:#fff;
+    font-size: 24px
+}

@@ -1,0 +1,67 @@
+<page-header [title]="'تماس با ما'"></page-header>
+<div class="row">
+  <div class="container">
+    <div class="row wrapper">
+      <div class="col-md-9">
+        <h3>همین حالا با ما تماس بگیرید</h3>
+        <form class="example-form row">
+          <mat-form-field class="example-full-width col-md-6" color="accent">
+            <input required matInput placeholder="نام" [formControl]="nameFormControl">
+            <mat-error *ngIf="nameFormControl.hasError('required')">
+              نام الزامی است
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width col-md-6" color="accent">
+            <input   pattern="[0-9]*" 
+            minlength="11"
+            maxlength="11"
+            type="text"
+            required  matInput placeholder="شماره تماس" [formControl]="phoneFormControl">
+            <mat-error *ngIf="phoneFormControl.hasError('required')">
+              شماره تماس الزامی است
+            </mat-error>
+            <mat-error *ngIf="phoneFormControl.hasError('pattern')">
+              لطفا فقط از اعداد استفاده کنید
+            </mat-error>
+            <mat-error *ngIf="!phoneFormControl.hasError('pattern') && phoneFormControl.hasError('minlength')">
+              شماره تماس باید حداقل 11 کاراکتر باشد
+            </mat-error>
+
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width col-12" color="accent">
+            <textarea required matInput placeholder="پیغام" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" [formControl]="messageFormControl"></textarea>
+            <mat-error *ngIf="messageFormControl.hasError('required')">
+              پیغام الزامی است
+            </mat-error>
+          </mat-form-field>
+          <div class="col-12">
+            <button mat-raised-button color="accent">ارسال</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-3">
+        <h3>راه های ارتباط با ما</h3>
+        <ul class="contact">
+          <li>
+            <mat-icon color="accent">location_on</mat-icon>
+            <h6>آدرس</h6>
+            <p>تهران، میدان رسالت، بزرگراه رسالت، نرسیده چهارراه سرسبز، پلاک662</p>
+          </li>
+          <li>
+            <mat-icon color="accent">phone</mat-icon>
+            <h6>تلفن</h6>
+            <p>77898489(021) - 77276583(021)</p>
+          </li>
+          <li>
+            <mat-icon color="accent">email</mat-icon>
+            <h6>ایمیل</h6>
+            <p>info@Seven-form.com</p>
+          </li>
+        </ul>
+        <agm></agm>
+      </div>
+    </div>
+  </div>
+</div>

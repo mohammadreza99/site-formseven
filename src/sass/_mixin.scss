@@ -1,0 +1,32 @@
+@import "./variable";
+
+@mixin bgDarkGray {
+    background-color: $lightGray;
+    color: $darkGray;
+}
+
+@mixin defaultFont($fontSize: $defaultFontSize, $color: $titleColor, $fontWeight: normal) {
+    font-family: iranSans;
+    font-size: $fontSize;
+    color: $color;
+    font-weight: $fontWeight;
+}
+
+@mixin title($fontSize: $titleSize, $color: $titleColor, $fontWeight: bold) {
+    font-family: iranSans;
+    font-size: $fontSize;
+    color: $color;
+    font-weight: $fontWeight;
+}
+
+@mixin subTitle($fontSize: $subTitleSize, $color: $titleColor, $fontWeight: "") {
+    font-family: iranSans;
+    font-size: $fontSize;
+    color: $color;
+    font-weight: $fontWeight;
+}
+
+@mixin bgBrick {
+    background-color: #fff;
+    background-image: url("../../../../assets/images/other/bgwall.png");
+}

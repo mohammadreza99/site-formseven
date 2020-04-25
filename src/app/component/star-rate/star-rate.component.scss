@@ -1,0 +1,19 @@
+
+:host {
+    display: inline;
+}
+
+.holder {
+    overflow: hidden;
+    display: inline-block;
+}
+
+.holder > div {
+    width: 24px;
+    display: flex;
+    height: 24px;
+}
+
+.star {
+    color: rgb(255, 217, 0);
+}

@@ -1,0 +1,21 @@
+<page-header [title]="'علاقمندی ها'"></page-header>
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <empty-list [show]="wishList.length==0"></empty-list>
+      <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let product of wishList;let i = index">
+        <div class="close-btn">
+          <button mat-mini-fab (click)="deleteItem(i)">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+        <item-product [product]="product">
+          <button mat-mini-fab (click)="openModal(i)">
+            <mat-icon>zoom_in</mat-icon>
+          </button>
+        </item-product>
+      </div>
+    </div>
+  </div>
+</div>
+<light-box [images]="gallery"></light-box>

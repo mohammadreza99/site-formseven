@@ -1,0 +1,19 @@
+@import "../../../../sass/style.scss";
+
+.col-12 mat-icon {
+    font-size: 121px !important;
+    font-weight: bold;
+    color: green;
+    width: auto;
+    height: auto;
+}
+
+a {
+    display: inline-block;
+    margin-bottom: 45px;
+    margin-top: 20px;
+}
+
+h2 {
+    @include title;
+}

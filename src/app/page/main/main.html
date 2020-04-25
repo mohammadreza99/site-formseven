@@ -1,0 +1,264 @@
+<mat-sidenav-container class="example-container" dir="rtl">
+  <!-- ========================================================================== -->
+  <!--                                    SIDENAV1                                -->
+  <!-- ========================================================================== -->
+  <mat-sidenav #sidenav1 (openedStart)="onMainOpenedStart()"
+    (closedStart)="onMainClosedStart()">
+    <div class="row align-items-center h-100">
+      <mat-accordion>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <a routerLink="/home" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" (click)="sidenav1.close()">
+                صفحه اصلی</a>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState1 = true" (closed)="panelOpenState1 = false">
+          <mat-expansion-panel-header (click)="$event.stopPropagation()">
+            <mat-panel-title [ngClass]="panelOpenState1 ? 'active' : ''">
+              محصولات
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <ul>
+            <li *ngFor="let group of groups;let i = index">
+              <a [routerLink]="['/products']" routerLinkActive="active" [queryParams]="{ group:group}" (click)="sidenav1.close()">
+                {{group}}</a>
+            </li>
+          </ul>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <a routerLink="/about" routerLinkActive="active" (click)="sidenav1.close()">
+                درباره ما</a>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <a routerLink="/contact" routerLinkActive="active" (click)="sidenav1.close()">
+                تماس با ما</a>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </mat-sidenav>
+
+  <!-- ========================================================================== -->
+  <!--                                    SIDENAV2                                -->
+  <!-- ========================================================================== -->
+  <mat-sidenav #sidenav2 (openedStart)="onOtherOpenedStart()"
+    (closedStart)="onOtherClosedStart()">
+    <div class="row align-items-center h-100">
+      <mat-accordion>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <a routerLink="/representation" routerLinkActive="active" (click)="sidenav2.close()">
+                اخذ نمایندگی
+              </a>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <a routerLink="/cloth-buying-guid" routerLinkActive="active" (click)="sidenav2.close()">
+                راهنمای خرید پارچه
+              </a>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <a routerLink="/how-to-get-size" routerLinkActive="active" (click)="sidenav2.close()">
+                نحوه بدست آوردن سایز
+              </a>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <a routerLink="/related-content" routerLinkActive="active" (click)="sidenav2.close()">
+                مطالب مفید دیگر
+              </a>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </mat-sidenav>
+
+
+  <mat-sidenav-content>
+    <div class="container-fluid" dir="rtl">
+      <div class="row">
+        <div class="container">
+          <div class="row">
+            <breadcrumb [ngClass]="showBreadcrumb ? 'd-block' : 'd-none'"></breadcrumb>
+          </div>
+        </div>
+      </div>
+
+      <router-outlet></router-outlet>
+      <!-- ========================================================================== -->
+      <!--                                    SIDE BUTTONS                            -->
+      <!-- ========================================================================== -->
+      <div class="sidenav" dir="rtl">
+        <div class="logo-wrapper text-center">
+          <a routerLink="/" (click)="onMainClosedStart();onOtherClosedStart();sidenav1.close();sidenav2.close()">
+            <img src="assets/images/logo/سون فرم.png" alt="سون فرم">
+            <h1>سون فرم</h1>
+          </a>
+        </div>
+
+        <div class="btns-wrapper">
+          <a [matTooltipPosition]="isSmallSize ? 'below' : 'left'" matTooltip="منو اصلی" mat-button (click)="sidenav1.toggle();sidenav2.close();onMainOpenedStart();onOtherClosedStart();$event.stopPropagation()"
+            [ngClass]="mainMenuStatus ? 'active' : ''">
+            <mat-icon>menu</mat-icon>
+          </a>
+
+          <a [matTooltipPosition]="isSmallSize ? 'below' : 'left'" matTooltip="علاقمندی ها" mat-button routerLink="/wishlist" routerLinkActive="active"
+            (click)="sidenav1.close();sidenav2.close()">
+            <mat-icon>favorite_border</mat-icon>
+            <span class="badge badge-light " #favoriteBadge>{{favoriteCount}}</span>
+          </a>
+
+          <a [matTooltipPosition]="isSmallSize ? 'below' : 'left'" matTooltip="سبد خرید" mat-button routerLink="/shopping-cart" routerLinkActive="active"
+            (click)="sidenav1.close();sidenav2.close()">
+            <mat-icon>shopping_cart</mat-icon>
+            <span class="badge badge-light " #shopCartBadge>{{shopCartCount}}</span>
+          </a>
+
+          <a [matTooltipPosition]="isSmallSize ? 'below' : 'left'" matTooltip="پیشنهادات ویژه" mat-button routerLink="/products/special-offers"
+            routerLinkActive="active" (click)="sidenav1.close();sidenav2.close()">
+            <mat-icon>star</mat-icon>
+          </a>
+
+          <a [matTooltipPosition]="isSmallSize ? 'below' : 'left'" matTooltip="وبلاگ" mat-button routerLink="/blog" routerLinkActive="active"
+            (click)="sidenav1.close();sidenav2.close()">
+            <mat-icon>library_books</mat-icon>
+          </a>
+
+          <a [matTooltipPosition]="isSmallSize ? 'below' : 'left'" matTooltip="سایر منوها" mat-button (click)="sidenav2.toggle();sidenav1.close();onOtherOpenedStart();onMainClosedStart();$event.stopPropagation()"
+            [ngClass]="otherMenuStatus ? 'active' : ''">
+            <mat-icon>more_horiz</mat-icon>
+          </a>
+
+        </div>
+      </div>
+
+
+      <!-- ========================================================================== -->
+      <!--                                    CATEGORIES                              -->
+      <!-- ========================================================================== -->
+      <div class="row categories">
+        <div class="col-12 categories align-self-center">
+          <h2 class="text-center">
+            دسته بندی محصولات
+          </h2>
+        </div>
+
+        <div *ngFor="let group of groups;let i=index" class="col col-12 col-sm-6 col-md-4 col-lg" (mouseenter)="onMouseenter(i)"
+          (mouseleave)="onMouseleave(i)">
+          <a class="text-right text-sm-center" mat-button [routerLink]="['/products']" [queryParams]="{ group:group}">
+            <img class="icon" [src]='"assets/images/other/icon/"+src[i]+".png"'> {{group}}
+          </a>
+        </div>
+      </div>
+
+
+
+      <!-- ========================================================================== -->
+      <!--                                    FOOTER                                  -->
+      <!-- ========================================================================== -->
+      <footer class="footer row justify-content-center">
+        <div class="col-11 align-self-center social">
+          <a href="http://www.t.me/sevenuniform">
+            <img src="../../../assets/images/social/telegram.png" alt="تلگرام">
+          </a>
+          <a href="https://www.facebook.com/sevenform">
+            <img src="../../../assets/images/social/fb.png" alt="فیسبوک">
+          </a>
+          <a href="mailto:info@sevenform.com">
+            <img src="../../../assets/images/social/gmail.png" alt="جیمیل">
+          </a>
+          <a href="http://www.instagram.com/formseven">
+            <img src="../../../assets/images/social/instagram.png" alt="اینستاگرام">
+          </a>
+        </div>
+      </footer>
+      <div class="footer-distributed row">
+        <div class="col-md-4 text-right">
+          <h3>درباره سون فرم</h3>
+          <p class="footer-company-about text-justify">
+            شرکت سون فرم، برترین تولید کننده
+            <strong>مانتو</strong> و
+            <strong>شلوار اداری</strong> و
+            <strong>کت</strong> و
+            <strong>شلوار</strong> اداری آقایان و بانوان در ایران می باشد. این شرکت مفتخر است با استفاده از تجربه های فراوانی که
+            در عرصه
+            <strong>برش و دوخت</strong> کسب کرده است، توانسته رضایت و آرامش خاطر مشتریان عزیز را کسب نماید.
+          </p>
+        </div>
+
+        <div class="col-md-4 text-right footer-contact ">
+          <h3>تماس با ما</h3>
+          <div>
+            <mat-icon>location_on</mat-icon>
+            <p>
+              <span>آدرس : </span> تهران، میدان رسالت، بزرگراه رسالت، نرسیده چهارراه سرسبز، پلاک 662 </p>
+          </div>
+          <div>
+            <mat-icon>phone</mat-icon>
+            <p>
+              <span>شماره تماس دفتر : </span> 77898489 (021) - 77276583 (021)</p>
+          </div>
+          <div>
+            <mat-icon>phone_iphone</mat-icon>
+            <p>
+              <span>مدیر تولید و بازرگانی : </span> 09129463602</p>
+          </div>
+          <div>
+            <mat-icon>phone_iphone</mat-icon>
+            <p>
+              <span>مدیر فروش : </span> 09376677642</p>
+          </div>
+
+          <div>
+            <mat-icon>email</mat-icon>
+            <p>
+              <a href="mailto:info@seven-form.com">info@seven-form.com</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 text-right">
+          <h3>لینک ها</h3>
+          <p class="footer-links">
+            <a routerLink="/">خانه</a>
+            <a routerLink="/products">محصولات</a>
+            <a routerLink="/about">درباره ما</a>
+            <a routerLink="/contact">تماس با ما</a>
+          </p>
+        </div>
+      </div>
+      <div class="row copyright">
+        <div class="col-12 text-center">تمامی حقوق این تارنما نزد شرکت سون فرم محفوظ می باشد.</div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

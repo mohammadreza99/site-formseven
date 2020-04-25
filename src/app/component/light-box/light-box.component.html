@@ -1,0 +1,18 @@
+<div id="myModal" class="modal">
+  <button mat-mini-fab class="close cursor" (click)="closeModal()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <div class="modal-content">
+    <div *ngFor="let img of images;let i=index" class="mySlides">
+      <div class="numbertext">{{images.length}} / {{i+1}}</div>
+      <img [src]="img" [alt]="' سون فرم ، لباس فرم ، فرم اداری ، لباس اداری ' + img">
+    </div>
+    <button *ngIf="show" mat-mini-fab class="prev" (click)="plusSlides(1)">
+      <mat-icon>navigate_next</mat-icon>
+    </button>
+    <button *ngIf="show" mat-mini-fab class="next" (click)="plusSlides(-1)">
+      <mat-icon>navigate_before</mat-icon>
+    </button>
+
+  </div>
+</div>
